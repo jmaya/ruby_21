@@ -2,8 +2,7 @@ require 'deck'
 require 'card'
 
 RSpec.describe Deck do
-  context "With default 52 cards" do
-
+  context 'With default 52 cards' do
     let(:deck) { Deck.new }
 
     it 'should have 52 cards' do
@@ -15,7 +14,9 @@ RSpec.describe Deck do
     end
 
     it 'should sum up the values' do
-      expect(deck.cards.collect(&:value).inject{|sum,x| sum + x}).to eql(728)
+      expect(deck.cards.collect(&:value).inject do |sum, x|
+        sum + x
+      end).to eql(728)
     end
 
     it 'should be in order' do

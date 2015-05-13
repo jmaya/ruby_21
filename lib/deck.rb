@@ -1,5 +1,6 @@
 require 'card'
 
+# Deck class.  Manages cards
 class Deck
   attr_reader :number_of_cards, :cards
 
@@ -13,7 +14,7 @@ class Deck
   end
 
   def shuffle
-    initialize_cards(shuffle:true)
+    initialize_cards(shuffle: true)
   end
 
   private
@@ -21,13 +22,9 @@ class Deck
   def initialize_cards(shuffle:false)
     cards = []
     (1..13).each do |value|
-      %w[RED BLACK].each do |color|
-        %w[SPADE HEART DIAMOND CLUB].each do |suit|
-          cards << Card.new(
-            suit:suit,
-            color:color,
-            value:value
-          )
+      %w(RED BLACK).each do |color|
+        %w(SPADE HEART DIAMOND CLUB).each do |suit|
+          cards << Card.new(suit: suit, color: color, value: value)
         end
       end
     end
